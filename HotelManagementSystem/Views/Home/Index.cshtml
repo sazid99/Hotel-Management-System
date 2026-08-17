@@ -1,8 +1,149 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Welcome to Grand Plaza Hotel";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- Hero Carousel / Banner Section -->
+<div id="hotelCarousel" class="carousel slide mb-5 shadow rounded overflow-hidden" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#hotelCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+                aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#hotelCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#hotelCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active bg-dark text-white text-center py-5"
+             style="min-height: 400px; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;">
+            <div class="container py-5 mt-4">
+                <h1 class="display-4 fw-bold text-white">Experience Luxury & Comfort</h1>
+                <p class="lead text-light">Enjoy your stay with world-class amenities, premium rooms, and exceptional
+                    hospitality.</p>
+                    <a href="/Booking" class="btn btn-primary btn-lg mt-3 px-4 shadow">Book Your Room Now</a>
+                </div>
+            </div>
+            <div class="carousel-item bg-dark text-white text-center py-5"
+                 style="min-height: 400px; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;">
+                <div class="container py-5 mt-4">
+                    <h1 class="display-4 fw-bold text-white">Exquisite Dining & Restaurant</h1>
+                    <p class="lead text-light">Savor delicious culinary creations prepared by our top-tier master chefs.</p>
+                    <a href="/Restaurant" class="btn btn-outline-light btn-lg mt-3 px-4">Explore Menu</a>
+                </div>
+            </div>
+            <div class="carousel-item bg-dark text-white text-center py-5"
+                 style="min-height: 400px; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;">
+                <div class="container py-5 mt-4">
+                    <h1 class="display-4 fw-bold text-white">Relaxing Spa & Leisure</h1>
+                    <p class="lead text-light">Unwind and rejuvenate your body and soul with our exclusive spa and wellness
+                        packages.</p>
+                        <a href="/Room" class="btn btn-primary btn-lg mt-3 px-4 shadow">View Rooms</a>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#hotelCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#hotelCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <!-- Hotel About / Description Section -->
+        <div class="container mb-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-3 text-primary">Welcome to Grand Plaza IUBAT</h2>
+                    <p class="text-secondary lh-lg">
+                        Nestled in the heart of the city, Grand Plaza Hotel offers an exquisite blend of modern luxury and
+                        timeless elegance. Whether you are travelling for corporate business or a peaceful weekend getaway, our
+                        dedicated staff and superior facilities ensure your stay is nothing short of extraordinary.
+                    </p>
+                    <p class="text-secondary lh-lg">
+                        From spacious luxury suites overlooking the skyline to fine dining restaurants and seamless online
+                        booking, we cater to your every comfort.
+                    </p>
+                    <a href="/Room" class="btn btn-outline-primary px-4 mt-2">Discover Our Rooms</a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="p-4 bg-light border rounded text-center shadow-sm h-100">
+                                <i class="fas fa-bed fa-2x text-primary mb-2"></i>
+                                <h5 class="fw-bold">Luxury Suites</h5>
+                                <p class="text-muted small mb-0">Spacious and comfortable rooms designed for maximum relaxation.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-4 bg-light border rounded text-center shadow-sm h-100">
+                                <i class="fas fa-utensils fa-2x text-primary mb-2"></i>
+                                <h5 class="fw-bold">Fine Dining</h5>
+                                <p class="text-muted small mb-0">Mouth-watering dishes available via our in-house restaurant.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-4 bg-light border rounded text-center shadow-sm h-100">
+                                <i class="fas fa-concierge-bell fa-2x text-primary mb-2"></i>
+                                <h5 class="fw-bold">24/7 Service</h5>
+                                <p class="text-muted small mb-0">Always at your service for front desk, queries, and assistance.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-4 bg-light border rounded text-center shadow-sm h-100">
+                                <i class="fas fa-wifi fa-2x text-primary mb-2"></i>
+                                <h5 class="fw-bold">Free High-Speed Wi-Fi</h5>
+                                <p class="text-muted small mb-0">Stay connected with high-speed internet access throughout the
+                                    property.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guest Ratings & Reviews Section -->
+            <div class="bg-light py-5 mb-4 rounded-3 border">
+                <div class="container text-center">
+                    <h2 class="fw-bold mb-4">What Our Guests Say</h2>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="p-4 bg-white rounded shadow-sm h-100 border-0">
+                                <div class="text-warning mb-2">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                                <p class="text-muted fst-italic">"An absolute marvelous stay! The rooms were immaculately clean and
+                                    the staff went above and beyond to make us feel welcome."</p>
+                                    <h6 class="fw-bold text-dark mb-0">— Sarah Jenkins</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-4 bg-white rounded shadow-sm h-100 border-0">
+                                    <div class="text-warning mb-2">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="text-muted fst-italic">"The restaurant food was phenomenal, and booking a room online took
+                                        less than two minutes. Highly recommended!"</p>
+                                        <h6 class="fw-bold text-dark mb-0">— Michael Chang</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-4 bg-white rounded shadow-sm h-100 border-0">
+                                        <div class="text-warning mb-2">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <p class="text-muted fst-italic">"Great location and amazing view from the suite balcony. Will
+                                            definitely be coming back for our next vacation."</p>
+                                            <h6 class="fw-bold text-dark mb-0">— David & Emily</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <a href="/Feedback" class="btn btn-sm btn-outline-dark">Leave Your Feedback</a>
+                                </div>
+                            </div>
+                        </div>

@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "v7/rRPprUDg=",
-  "success": true,
-  "projectFilePath": "C:\\Users\\mahmu\\source\\repos\\Hotel-Management-System\\HotelManagementSystem\\HotelManagementSystem.csproj",
-=======
   "dgSpecHash": "XSUapNpn1HY=",
   "success": true,
   "projectFilePath": "C:\\Users\\mahmu\\Desktop\\C# Projects\\Hotel-Management-System\\HotelManagementSystem\\HotelManagementSystem.csproj",
->>>>>>> a69284dfb60e97659d4b0bae2d6eebd9ffdcfc38
   "expectedPackageFiles": [],
   "logs": []
 }
