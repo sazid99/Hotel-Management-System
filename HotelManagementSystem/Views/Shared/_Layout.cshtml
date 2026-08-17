@@ -28,7 +28,7 @@
                 </button>
 
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav align-items-center">
                         <li class="nav-item">
                             <a class="nav-link text-white px-3 rounded" asp-controller="Home" asp-action="Index">
                                 <i class="fas fa-home me-1"></i> Home
@@ -60,112 +60,132 @@
                                 <i class="fas fa-cogs me-1"></i> Management
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" asp-controller="Staff" asp-action="Index"><i
-                                    class="fas fa-users fa-fw me-2"></i> Staff</a></li>
-                                    <li><a class="dropdown-item" asp-controller="Billing" asp-action="Index"><i
-                                        class="fas fa-file-invoice-dollar fa-fw me-2"></i> Billing</a></li>
-                                        <li><a class="dropdown-item" asp-controller="Feedback" asp-action="Index"><i
-                                            class="fas fa-comments fa-fw me-2"></i> Feedback</a></li>
-                                            <li>
-                                                <hr class="dropdown-divider">
-                                            </li>
-                                            <li><a class="dropdown-item" asp-controller="Account" asp-action="Index"><i
-                                                class="fas fa-user-shield fa-fw me-2"></i> Admin</a></li>
-                                            </ul>
-                                        </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Staff" asp-action="Index">
+                                        <i class="fas fa-users fa-fw me-2"></i> Staff
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Billing" asp-action="Index">
+                                        <i class="fas fa-file-invoice-dollar fa-fw me-2"></i> Billing
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Feedback" asp-action="Index">
+                                        <i class="fas fa-comments fa-fw me-2"></i> Feedback
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="Index">
+                                        <i class="fas fa-user-shield fa-fw me-2"></i> Admin
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Login Button -->
+                        <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                            <a class="btn btn-light text-primary fw-semibold px-3 shadow-sm" asp-controller="Account"
+                               asp-action="Login">
+                                <i class="fas fa-sign-in-alt me-1"></i> Login
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container flex-shrink-0">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- Production-Grade Professional Footer with High Visibility Colors -->
+    <footer style="background-color: #111827; color: #f3f4f6;" class="pt-5 pb-3 border-top border-secondary mt-auto">
+        <div class="container">
+            <div class="row g-4 mb-4">
+                <!-- About Column -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white fw-bold mb-3">
+                        <i class="fas fa-hotel text-info me-2"></i>Grand Plaza IUBAT
+                    </h5>
+                    <p style="color: #9ca3af;" class="small lh-lg">
+                        Experience world-class hospitality, luxurious suites, and exceptional dining services tailored
+                        to make your stay extraordinary and unforgettable.
+                    </p>
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="#" class="text-info fs-5"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-info fs-5"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-info fs-5"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-info fs-5"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h6 class="text-white fw-bold mb-3 border-bottom border-secondary pb-2">Quick Links</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a asp-controller="Home" asp-action="Index" style="color: #d1d5db;"
+                                                class="text-decoration-none">Home</a></li>
+                            <li class="mb-2"><a asp-controller="Room" asp-action="Index" style="color: #d1d5db;"
+                                                    class="text-decoration-none">Rooms & Suites</a></li>
+                                <li class="mb-2"><a asp-controller="Booking" asp-action="Index" style="color: #d1d5db;"
+                                                        class="text-decoration-none">Book Online</a></li>
+                                    <li class="mb-2"><a asp-controller="Restaurant" asp-action="Index" style="color: #d1d5db;"
+                                                            class="text-decoration-none">Restaurant</a></li>
                                     </ul>
                                 </div>
-                            </div>
-                        </nav>
-                    </header>
 
-                    <div class="container flex-shrink-0">
-                        <main role="main" class="pb-3">
-                            @RenderBody()
-                        </main>
-                    </div>
-
-                    <!-- Production-Grade Professional Footer with High Visibility Colors -->
-                    <footer style="background-color: #111827; color: #f3f4f6;" class="pt-5 pb-3 border-top border-secondary mt-auto">
-                        <div class="container">
-                            <div class="row g-4 mb-4">
-                                <!-- About Column -->
-                                <div class="col-lg-4 col-md-6">
-                                    <h5 class="text-white fw-bold mb-3">
-                                        <i class="fas fa-hotel text-info me-2"></i>Grand Plaza IUBAT
-                                    </h5>
-                                    <p style="color: #9ca3af;" class="small lh-lg">
-                                        Experience world-class hospitality, luxurious suites, and exceptional dining services tailored
-                                        to make your stay extraordinary and unforgettable.
-                                    </p>
-                                    <div class="d-flex gap-3 mt-3">
-                                        <a href="#" class="text-info fs-5"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#" class="text-info fs-5"><i class="fab fa-twitter"></i></a>
-                                        <a href="#" class="text-info fs-5"><i class="fab fa-instagram"></i></a>
-                                        <a href="#" class="text-info fs-5"><i class="fab fa-linkedin-in"></i></a>
-                                    </div>
-                                </div>
-
-                                <!-- Quick Links Column -->
+                                <!-- Customer Care Column -->
                                 <div class="col-lg-2 col-md-6 col-6">
-                                    <h6 class="text-white fw-bold mb-3 border-bottom border-secondary pb-2">Quick Links</h6>
+                                    <h6 class="text-white fw-bold mb-3 border-bottom border-secondary pb-2">Support</h6>
                                     <ul class="list-unstyled small">
-                                        <li class="mb-2"><a asp-controller="Home" asp-action="Index" style="color: #d1d5db;"
-                                                                class="text-decoration-none">Home</a></li>
-                                            <li class="mb-2"><a asp-controller="Room" asp-action="Index" style="color: #d1d5db;"
-                                                                    class="text-decoration-none">Rooms & Suites</a></li>
-                                                <li class="mb-2"><a asp-controller="Booking" asp-action="Index" style="color: #d1d5db;"
-                                                                        class="text-decoration-none">Book Online</a></li>
-                                                    <li class="mb-2"><a asp-controller="Restaurant" asp-action="Index" style="color: #d1d5db;"
-                                                                            class="text-decoration-none">Restaurant</a></li>
-                                                    </ul>
-                                                </div>
+                                        <li class="mb-2"><a asp-controller="Feedback" asp-action="Index" style="color: #d1d5db;"
+                                                                class="text-decoration-none">Guest Feedback</a></li>
+                                            <li class="mb-2"><a asp-area="" asp-controller="Home" asp-action="Privacy"
+                                                                    style="color: #d1d5db;" class="text-decoration-none">Privacy Policy</a></li>
+                                                <li class="mb-2"><a href="#" style="color: #d1d5db;" class="text-decoration-none">Terms of
+                                                    Service</a></li>
+                                                    <li class="mb-2"><a href="#" style="color: #d1d5db;" class="text-decoration-none">FAQs</a></li>
+                                                </ul>
+                                            </div>
 
-                                                <!-- Customer Care Column -->
-                                                <div class="col-lg-2 col-md-6 col-6">
-                                                    <h6 class="text-white fw-bold mb-3 border-bottom border-secondary pb-2">Support</h6>
-                                                    <ul class="list-unstyled small">
-                                                        <li class="mb-2"><a asp-controller="Feedback" asp-action="Index" style="color: #d1d5db;"
-                                                                                class="text-decoration-none">Guest Feedback</a></li>
-                                                            <li class="mb-2"><a asp-area="" asp-controller="Home" asp-action="Privacy"
-                                                                                    style="color: #d1d5db;" class="text-decoration-none">Privacy Policy</a></li>
-                                                                <li class="mb-2"><a href="#" style="color: #d1d5db;" class="text-decoration-none">Terms of
-                                                                    Service</a></li>
-                                                                    <li class="mb-2"><a href="#" style="color: #d1d5db;" class="text-decoration-none">FAQs</a></li>
-                                                                </ul>
-                                                            </div>
+                                            <!-- Contact Info Column -->
+                                            <div class="col-lg-4 col-md-6">
+                                                <h6 class="text-white fw-bold mb-3 border-bottom border-secondary pb-2">Contact Us</h6>
+                                                <ul class="list-unstyled small">
+                                                    <li class="mb-2 d-flex align-items-start">
+                                                        <i class="fas fa-map-marker-alt text-info mt-1 me-2"></i>
+                                                        <span style="color: #d1d5db;">4 Embankment Drive Road, Sector 10, Uttara, Dhaka-1230</span>
+                                                    </li>
+                                                    <li class="mb-2 d-flex align-items-center">
+                                                        <i class="fas fa-phone-alt text-info me-2"></i>
+                                                        <span style="color: #d1d5db;">+880 2 55030351</span>
+                                                    </li>
+                                                    <li class="mb-2 d-flex align-items-center">
+                                                        <i class="fas fa-envelope text-info me-2"></i>
+                                                        <span style="color: #d1d5db;">support@grandplazaiubat.com</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
 
-                                                            <!-- Contact Info Column -->
-                                                            <div class="col-lg-4 col-md-6">
-                                                                <h6 class="text-white fw-bold mb-3 border-bottom border-secondary pb-2">Contact Us</h6>
-                                                                <ul class="list-unstyled small">
-                                                                    <li class="mb-2 d-flex align-items-start">
-                                                                        <i class="fas fa-map-marker-alt text-info mt-1 me-2"></i>
-                                                                        <span style="color: #d1d5db;">4 Embankment Drive Road, Sector 10, Uttara, Dhaka-1230</span>
-                                                                    </li>
-                                                                    <li class="mb-2 d-flex align-items-center">
-                                                                        <i class="fas fa-phone-alt text-info me-2"></i>
-                                                                        <span style="color: #d1d5db;">+880 2 55030351</span>
-                                                                    </li>
-                                                                    <li class="mb-2 d-flex align-items-center">
-                                                                        <i class="fas fa-envelope text-info me-2"></i>
-                                                                        <span style="color: #d1d5db;">support@grandplazaiubat.com</span>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
+                                        <!-- Bottom Copyright Bar -->
+                                        <div class="border-top border-secondary pt-3 text-center small" style="color: #9ca3af;">
+                                            <p class="mb-0">&copy; 2026 Grand Plaza Hotel Management System. All Rights Reserved.</p>
+                                        </div>
+                                    </div>
+                                </footer>
 
-                                                        <!-- Bottom Copyright Bar -->
-                                                        <div class="border-top border-secondary pt-3 text-center small" style="color: #9ca3af;">
-                                                            <p class="mb-0">&copy; 2026 Grand Plaza Hotel Management System. All Rights Reserved.</p>
-                                                        </div>
-                                                    </div>
-                                                </footer>
+                                <script src="~/lib/jquery/dist/jquery.min.js"></script>
+                                <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+                                <script src="~/js/site.js" asp-append-version="true"></script>
+                                @await RenderSectionAsync("Scripts", required: false)
+                            </body>
 
-                                                <script src="~/lib/jquery/dist/jquery.min.js"></script>
-                                                <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-                                                <script src="~/js/site.js" asp-append-version="true"></script>
-                                                @await RenderSectionAsync("Scripts", required: false)
-                                            </body>
-
-                                        </html>
+                        </html>

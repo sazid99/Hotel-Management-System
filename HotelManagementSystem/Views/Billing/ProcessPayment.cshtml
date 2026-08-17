@@ -1,4 +1,4 @@
-﻿@model HotelManagementSystem.Models.Payment
+@model HotelManagementSystem.Models.Payment
 
 @{
     ViewData["Title"] = "Process Payment";
@@ -18,8 +18,8 @@
 
                         <div class="mb-3">
                             <label class="form-label fw-semibold">Invoice ID</label>
-                            <input type="number" name="InvoiceId" class="form-control" placeholder="Enter Invoice ID"
-                                   required />
+                            <input type="number" name="InvoiceId" value="@Context.Request.Query["invoiceId"]"
+                                   class="form-control" readonly />
                         </div>
 
                         <div class="mb-3">

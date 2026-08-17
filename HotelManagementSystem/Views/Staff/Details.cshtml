@@ -1,0 +1,53 @@
+@model HotelManagementSystem.Models.Staff
+
+@{
+    ViewData["Title"] = "Staff Details";
+}
+
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <a asp-action="Index" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-left me-1"></i> Back to List
+        </a>
+    </div>
+
+    <div class="card border-0 shadow-sm rounded-3 p-4 p-md-5">
+        <h3 class="fw-bold text-primary mb-4">
+            <i class="fas fa-user-tie me-2"></i>Staff Details
+        </h3>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-semibold text-secondary">Staff ID:</div>
+            <div class="col-md-9">#@Model.Id</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-3 fw-semibold text-secondary">Name:</div>
+            <div class="col-md-9 fw-bold text-dark">@Model.Name</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-3 fw-semibold text-secondary">Role:</div>
+            <div class="col-md-9">@Model.Role</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-3 fw-semibold text-secondary">Email:</div>
+            <div class="col-md-9">@Model.Email</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-3 fw-semibold text-secondary">Phone:</div>
+            <div class="col-md-9">@Model.Phone</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-3 fw-semibold text-secondary">Status:</div>
+            <div class="col-md-9">
+                @if (Model.Status == "Active")
+                {
+                    <span class="badge bg-success px-3 py-2">Active</span>
+                }
+                else
+                {
+                    <span class="badge bg-danger px-3 py-2">Inactive</span>
+                }
+            </div>
+        </div>
+    </div>
+</div>

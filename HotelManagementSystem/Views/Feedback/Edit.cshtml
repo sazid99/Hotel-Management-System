@@ -1,26 +1,25 @@
-﻿@model HotelManagementSystem.Models.Feedback
+@model HotelManagementSystem.Models.Feedback
 
 @{
-    ViewData["Title"] = "Add Feedback";
+    ViewData["Title"] = "Edit Feedback";
 }
 
 <div class="container py-4">
-    <!-- Page Header -->
     <div class="row justify-content-center mb-4">
         <div class="col-lg-6">
             <h2 class="fw-bold text-dark mb-1">
-                <i class="fas fa-comment-medical text-primary me-2"></i>Add New Feedback
+                <i class="fas fa-edit text-primary me-2"></i>Edit Feedback
             </h2>
-            <p class="text-muted small mb-0">Share your experience or submit a review on behalf of a guest.</p>
+            <p class="text-muted small mb-0">Update the guest feedback details below.</p>
         </div>
     </div>
 
-    <!-- Form Card -->
     <div class="row justify-content-center">
         <div class="col-lg-6">
             <div class="card border-0 shadow-sm rounded-3">
                 <div class="card-body p-4">
-                    <form asp-action="Create" method="post">
+                    <form asp-action="Edit" method="post">
+                        <input type="hidden" asp-for="Id" />
                         <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
                         <!-- Guest Name -->
@@ -28,7 +27,7 @@
                             <label asp-for="GuestName" class="form-label fw-semibold">Guest Name</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-light"><i class="fas fa-user text-muted"></i></span>
-                                <input asp-for="GuestName" class="form-control" placeholder="Enter guest name" />
+                                <input asp-for="GuestName" class="form-control" />
                             </div>
                             <span asp-validation-for="GuestName" class="text-danger small"></span>
                         </div>
@@ -39,7 +38,7 @@
                             <div class="input-group">
                                 <span class="input-group-text bg-light"><i
                                     class="fas fa-envelope text-muted"></i></span>
-                                    <input asp-for="Email" class="form-control" placeholder="Enter guest email" />
+                                    <input asp-for="Email" class="form-control" />
                                 </div>
                                 <span asp-validation-for="Email" class="text-danger small"></span>
                             </div>
@@ -50,7 +49,6 @@
                                 <div class="input-group">
                                     <span class="input-group-text bg-light"><i class="fas fa-star text-muted"></i></span>
                                     <select asp-for="Rating" class="form-select">
-                                        <option value="" selected disabled>Choose rating...</option>
                                         <option value="5">5 Stars - Excellent</option>
                                         <option value="4">4 Stars - Very Good</option>
                                         <option value="3">3 Stars - Good</option>
@@ -68,8 +66,7 @@
                                     <span class="input-group-text bg-light align-items-start pt-2">
                                         <i class="fas fa-comment-alt text-muted"></i>
                                     </span>
-                                    <textarea asp-for="Comments" class="form-control" rows="4"
-                                              placeholder="Write detailed feedback or comments here..."></textarea>
+                                    <textarea asp-for="Comments" class="form-control" rows="4"></textarea>
                                 </div>
                                 <span asp-validation-for="Comments" class="text-danger small"></span>
                             </div>
@@ -80,7 +77,7 @@
                                     <i class="fas fa-arrow-left me-1"></i> Back to List
                                 </a>
                                 <button type="submit" class="btn btn-primary px-4 shadow-sm">
-                                    <i class="fas fa-save me-1"></i> Submit Feedback
+                                    <i class="fas fa-save me-1"></i> Save Changes
                                 </button>
                             </div>
                         </form>

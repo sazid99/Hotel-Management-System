@@ -35,14 +35,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mahmu/Desktop/C\# Projects/Hotel-Management-System/HotelManagementSystem/Views/Billing/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ1xDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/mahmu/Desktop/C\# Projects/Hotel-Management-System/HotelManagementSystem/Views/Billing/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ1xEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/mahmu/Desktop/C\# Projects/Hotel-Management-System/HotelManagementSystem/Views/Billing/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -53,10 +45,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/mahmu/Desktop/C\# Projects/Hotel-Management-System/HotelManagementSystem/Views/Billing/Payment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ1xQYXltZW50LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/mahmu/Desktop/C\# Projects/Hotel-Management-System/HotelManagementSystem/Views/Billing/ProcessPayment.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ1xQcm9jZXNzUGF5bWVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mahmu/Desktop/C\# Projects/Hotel-Management-System/HotelManagementSystem/Views/Booking/Create.cshtml]
@@ -89,10 +77,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/mahmu/Desktop/C\# Projects/Hotel-Management-System/HotelManagementSystem/Views/Feedback/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZGJhY2tcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/mahmu/Desktop/C\# Projects/Hotel-Management-System/HotelManagementSystem/Views/Feedback/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZGJhY2tcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mahmu/Desktop/C\# Projects/Hotel-Management-System/HotelManagementSystem/Views/Feedback/Index.cshtml]
@@ -173,10 +157,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/mahmu/Desktop/C\# Projects/Hotel-Management-System/HotelManagementSystem/Views/Staff/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/mahmu/Desktop/C\# Projects/Hotel-Management-System/HotelManagementSystem/Views/Staff/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mahmu/Desktop/C\# Projects/Hotel-Management-System/HotelManagementSystem/Views/Staff/Edit.cshtml]

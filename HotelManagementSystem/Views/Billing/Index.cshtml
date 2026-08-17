@@ -1,5 +1,107 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<HotelManagementSystem.Models.Invoice>
+
 @{
+    ViewData["Title"] = "Billing & Invoices";
 }
+
+<div class="container py-4">
+    <!-- Page Header -->
+    <div class="row justify-content-between align-items-center mb-4">
+        <div class="col-lg-6">
+            <h2 class="fw-bold text-dark mb-1">
+                <i class="fas fa-file-invoice-dollar text-primary me-2"></i>Billing & Invoices
+            </h2>
+            <p class="text-muted small mb-0">Manage hotel bills, track payments, and generate new invoices.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+            <a asp-action="Create" class="btn btn-primary shadow-sm">
+                <i class="fas fa-plus me-1"></i> Create New Invoice
+            </a>
+        </div>
+    </div>
+
+    <!-- Billing Table Card -->
+    <div class="card border-0 shadow-sm rounded-3">
+        <div class="card-body p-4">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="py-3">Invoice ID</th>
+                            <th class="py-3">Booking ID</th>
+                            <th class="py-3">Total Amount</th>
+                            <th class="py-3">Paid Amount</th>
+                            <th class="py-3">Due Amount</th>
+                            <th class="py-3">Status</th>
+                            <th class="py-3">Issue Date</th>
+                            <th class="py-3 text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @* মডেল ডেটা থাকলে এখানে লুপ চলবে, না থাকলে ডেমো বা খালি দেখাবে *@
+                        @if (Model != null && Model.Any())
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="fw-semibold">#@item.Id</td>
+                                    <td>@item.BookingId</td>
+                                    <td>$@item.TotalAmount</td>
+                                    <td class="text-success">$@item.PaidAmount</td>
+                                    <td class="text-danger">$@item.DueAmount</td>
+                                    <td>
+                                        @if (item.Status == "Paid")
+                                        {
+                                            <span class="badge bg-success bg-opacity-10 text-success px-2 py-1">Paid</span>
+                                        }
+                                        else if (item.Status == "Partially Paid")
+                                        {
+                                            <span class="badge bg-warning bg-opacity-10 text-warning px-2 py-1">Partially Paid</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-danger bg-opacity-10 text-danger px-2 py-1">Unpaid</span>
+                                        }
+                                    </td>
+                                    <td>@item.IssueDate.ToString("yyyy-MM-dd")</td>
+                                    <td class="text-end">
+                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info me-1" title="View Details">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a asp-action="ProcessPayment" asp-route-invoiceId="@item.Id" class="btn btn-sm btn-outline-success" title="Process Payment">
+                                            <i class="fas fa-credit-card"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <!-- ডেমো হিসেবে একটি র ডেটা রাখা হয়েছে যাতে পেটি ফাঁকা না দেখায় -->
+                            <tr>
+                                <td class="fw-semibold">#101</td>
+                                <div></div>
+                                <td>15</td>
+                                <td>$350.00</td>
+                                <td class="text-success">$350.00</td>
+                                <td class="text-danger">$0.00</td>
+                                <td>
+                                    <span class="badge bg-success bg-opacity-10 text-success px-2 py-1">Paid</span>
+                                </td>
+                                <td>2026-06-05</td>
+                                <td class="text-end">
+                                    <a asp-action="Details" asp-route-id="1" class="btn btn-sm btn-outline-info me-1" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a asp-action="ProcessPayment" asp-route-invoiceId="1" class="btn btn-sm btn-outline-success" title="Process Payment">
+                                        <i class="fas fa-credit-card"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
