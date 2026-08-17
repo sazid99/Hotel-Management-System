@@ -14,11 +14,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\mahmu\\source\\repos\\Hotel-Management-System\\HotelManagementSystem\\HotelManagementSystem.csproj",
       "projectName": "HotelManagementSystem",
       "projectPath": "C:\\Users\\mahmu\\source\\repos\\Hotel-Management-System\\HotelManagementSystem\\HotelManagementSystem.csproj",
       "packagesPath": "C:\\Users\\mahmu\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\mahmu\\source\\repos\\Hotel-Management-System\\HotelManagementSystem\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\mahmu\\Desktop\\C# Projects\\Hotel-Management-System\\HotelManagementSystem\\HotelManagementSystem.csproj",
+      "projectName": "HotelManagementSystem",
+      "projectPath": "C:\\Users\\mahmu\\Desktop\\C# Projects\\Hotel-Management-System\\HotelManagementSystem\\HotelManagementSystem.csproj",
+      "packagesPath": "C:\\Users\\mahmu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mahmu\\Desktop\\C# Projects\\Hotel-Management-System\\HotelManagementSystem\\obj\\",
+>>>>>>> a69284dfb60e97659d4b0bae2d6eebd9ffdcfc38
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
