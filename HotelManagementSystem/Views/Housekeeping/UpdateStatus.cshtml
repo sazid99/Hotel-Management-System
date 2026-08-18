@@ -1,5 +1,31 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model HotelManagementSystem.Models.HousekeepingTask
+
+<div class="container mt-4">
+    <h2>Update Room Status - Room @Model.RoomNumber</h2>
+    <form asp-action="UpdateStatus" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="RoomNumber" />
+
+        <div class="mb-3">
+            <label class="form-label">Cleaning Status</label>
+            <select asp-for="CleaningStatus" class="form-select">
+                <option value="Dirty">Dirty</option>
+                <option value="In-progress">In-progress</option>
+                <option value="Clean">Clean</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Assign Staff</label>
+            <input asp-for="AssignedStaff" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Maintenance / Repair Request Notes</label>
+            <textarea asp-for="MaintenanceNotes" class="form-control"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success">Save Status</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
