@@ -7,13 +7,19 @@ namespace HotelManagementSystem.Controllers
     {
         private static List<HousekeepingTask> tasks = new List<HousekeepingTask>
         {
-            new HousekeepingTask { Id = 1, RoomNumber = "101", CleaningStatus = "Dirty", AssignedStaff = "Rahim", MaintenanceNotes = "AC Filter check needed" },
-            new HousekeepingTask { Id = 2, RoomNumber = "102", CleaningStatus = "Clean", AssignedStaff = "Karim" }
+            new HousekeepingTask { Id = 1, RoomNumber = "101", CleaningStatus = "Dirty", TaskType = "Cleaning", AssignedStaff = "Rahim", MaintenanceNotes = "AC Filter check needed" },
+            new HousekeepingTask { Id = 2, RoomNumber = "102", CleaningStatus = "Clean", TaskType = "Cleaning", AssignedStaff = "Karim" }
         };
 
-        public IActionResult Index()
+        // GET: Housekeeping/Index?statusFilter=
+        public IActionResult Index(string statusFilter)
         {
-            return View(tasks);
+            var result = string.IsNullOrEmpty(statusFilter)
+                ? tasks
+                : tasks.Where(t => t.CleaningStatus == statusFilter).ToList();
+
+            ViewBag.StatusFilter = statusFilter;
+            return View(result);
         }
 
         public IActionResult Create() => View();
@@ -23,7 +29,7 @@ namespace HotelManagementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                task.Id = tasks.Count + 1;
+                task.Id = tasks.Count == 0 ? 1 : tasks.Max(t => t.Id) + 1;
                 tasks.Add(task);
                 return RedirectToAction(nameof(Index));
             }
@@ -46,7 +52,27 @@ namespace HotelManagementSystem.Controllers
                 existingTask.CleaningStatus = task.CleaningStatus;
                 existingTask.AssignedStaff = task.AssignedStaff;
                 existingTask.MaintenanceNotes = task.MaintenanceNotes;
+
+                if (existingTask.CleaningStatus == "Clean")
+                {
+                    existingTask.IsCompleted = true;
+                    existingTask.CompletedDate = DateTime.Now;
+                }
+                else
+                {
+                    existingTask.IsCompleted = false;
+                    existingTask.CompletedDate = null;
+                }
             }
+            return RedirectToAction(nameof(Index));
+        }
+
+        // POST: Housekeeping/Delete/5
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var task = tasks.FirstOrDefault(t => t.Id == id);
+            if (task != null) tasks.Remove(task);
             return RedirectToAction(nameof(Index));
         }
     }

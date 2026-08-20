@@ -1,5 +1,41 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model HotelManagementSystem.Models.Guest
+
 @{
+    ViewData["Title"] = "Guest Details";
 }
+
+<h2>Guest Details</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <td>@Model.Name</td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td>@Model.Email</td>
+    </tr>
+    <tr>
+        <th>Phone</th>
+        <td>@Model.Phone</td>
+    </tr>
+    <tr>
+        <th>Address</th>
+        <td>@Model.Address</td>
+    </tr>
+    <tr>
+        <th>Identity Document</th>
+        <td>@Model.IdentityDocumentType - @Model.IdentityDocumentNumber</td>
+    </tr>
+    <tr>
+        <th>Preferences / Notes</th>
+        <td>@Model.Preferences</td>
+    </tr>
+    <tr>
+        <th>Profile Created</th>
+        <td>@Model.CreatedAt.ToString("dd MMM yyyy, hh:mm tt")</td>
+    </tr>
+</table>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

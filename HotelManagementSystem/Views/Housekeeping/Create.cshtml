@@ -1,5 +1,53 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model HotelManagementSystem.Models.HousekeepingTask
+
 @{
+    ViewData["Title"] = "Assign New Task";
 }
+
+<div class="container mt-4">
+    <h2>Assign New Housekeeping Task</h2>
+
+    <form asp-action="Create" method="post">
+        <div class="mb-3">
+            <label class="form-label">Room Number</label>
+            <input asp-for="RoomNumber" class="form-control" />
+            <span asp-validation-for="RoomNumber" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Task Type</label>
+            <select asp-for="TaskType" class="form-control">
+                <option value="Cleaning">Cleaning</option>
+                <option value="Maintenance">Maintenance</option>
+                <option value="Repair">Repair</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Cleaning Status</label>
+            <select asp-for="CleaningStatus" class="form-control">
+                <option value="Dirty">Dirty</option>
+                <option value="In-progress">In-progress</option>
+                <option value="Clean">Clean</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Assigned Staff</label>
+            <input asp-for="AssignedStaff" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Scheduled Date</label>
+            <input asp-for="ScheduledDate" type="date" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Maintenance / Repair Notes</label>
+            <textarea asp-for="MaintenanceNotes" class="form-control"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success">Save Task</button>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </form>
+</div>

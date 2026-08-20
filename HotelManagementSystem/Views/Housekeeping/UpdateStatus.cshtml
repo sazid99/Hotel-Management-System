@@ -1,14 +1,18 @@
 ﻿@model HotelManagementSystem.Models.HousekeepingTask
 
+@{
+    ViewData["Title"] = "Update Task Status";
+}
+
 <div class="container mt-4">
-    <h2>Update Room Status - Room @Model.RoomNumber</h2>
-    <form asp-action="UpdateStatus" method="post">
+    <h2>Update Status - Room @Model.RoomNumber</h2>
+
+    <form asp-action="UpdateStatus" asp-route-id="@Model.Id" method="post">
         <input type="hidden" asp-for="Id" />
-        <input type="hidden" asp-for="RoomNumber" />
 
         <div class="mb-3">
             <label class="form-label">Cleaning Status</label>
-            <select asp-for="CleaningStatus" class="form-select">
+            <select asp-for="CleaningStatus" class="form-control">
                 <option value="Dirty">Dirty</option>
                 <option value="In-progress">In-progress</option>
                 <option value="Clean">Clean</option>
@@ -16,16 +20,16 @@
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Assign Staff</label>
+            <label class="form-label">Assigned Staff</label>
             <input asp-for="AssignedStaff" class="form-control" />
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Maintenance / Repair Request Notes</label>
+            <label class="form-label">Maintenance / Repair Notes</label>
             <textarea asp-for="MaintenanceNotes" class="form-control"></textarea>
         </div>
 
-        <button type="submit" class="btn btn-success">Save Status</button>
-        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        <button type="submit" class="btn btn-primary">Update Task</button>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
     </form>
 </div>

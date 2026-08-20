@@ -1,28 +1,56 @@
 ﻿@model HotelManagementSystem.Models.Guest
 
+@{
+    ViewData["Title"] = "Add New Guest";
+}
+
 <div class="container mt-4">
-    <h2>Create Guest Profile</h2>
+    <h2>Add New Guest</h2>
+
     <form asp-action="Create" method="post">
         <div class="mb-3">
             <label class="form-label">Full Name</label>
-            <input asp-for="Name" class="form-control" required />
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
         </div>
+
         <div class="mb-3">
             <label class="form-label">Email</label>
-            <input asp-for="Email" class="form-control" type="email" required />
+            <input asp-for="Email" class="form-control" type="email" />
+            <span asp-validation-for="Email" class="text-danger"></span>
         </div>
+
         <div class="mb-3">
             <label class="form-label">Phone</label>
-            <input asp-for="Phone" class="form-control" required />
+            <input asp-for="Phone" class="form-control" />
+            <span asp-validation-for="Phone" class="text-danger"></span>
         </div>
+
+        <div class="mb-3">
+            <label class="form-label">Address</label>
+            <input asp-for="Address" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Identity Document Type</label>
+            <select asp-for="IdentityDocumentType" class="form-control">
+                <option value="">-- Select --</option>
+                <option value="NID">NID</option>
+                <option value="Passport">Passport</option>
+                <option value="Driving License">Driving License</option>
+            </select>
+        </div>
+
         <div class="mb-3">
             <label class="form-label">NID / Passport Number</label>
             <input asp-for="IdentityDocumentNumber" class="form-control" />
         </div>
+
         <div class="mb-3">
             <label class="form-label">Preferences / Special Notes</label>
             <textarea asp-for="Preferences" class="form-control"></textarea>
         </div>
+
         <button type="submit" class="btn btn-success">Save Guest</button>
         <a asp-action="Index" class="btn btn-secondary">Back to List</a>
     </form>

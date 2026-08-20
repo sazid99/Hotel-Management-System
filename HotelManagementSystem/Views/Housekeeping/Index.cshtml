@@ -1,8 +1,68 @@
-﻿@{
-    ViewData["Title"] = "Housekeeping Management";
+﻿@model List<HotelManagementSystem.Models.HousekeepingTask>
+
+@{
+    ViewData["Title"] = "Housekeeping Tasks";
 }
 
 <div class="container mt-4">
-    <h2>Housekeeping Management</h2>
-    <p>Welcome to the housekeeping management section.</p>
+    <h2>Housekeeping Tasks</h2>
+
+    <div class="d-flex justify-content-between mb-3">
+        <a asp-action="Create" class="btn btn-primary">+ Assign New Task</a>
+        <form asp-action="Index" method="get" class="d-flex gap-2">
+            <select name="statusFilter" class="form-control" onchange="this.form.submit()">
+                <option value="">All Status</option>
+                <option value="Clean" selected="@(ViewBag.StatusFilter == "Clean")">Clean</option>
+                <option value="Dirty" selected="@(ViewBag.StatusFilter == "Dirty")">Dirty</option>
+                <option value="In-progress" selected="@(ViewBag.StatusFilter == "In-progress")">In-progress</option>
+            </select>
+        </form>
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Room</th>
+                <th>Task Type</th>
+                <th>Status</th>
+                <th>Assigned Staff</th>
+                <th>Scheduled Date</th>
+                <th>Notes</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var task in Model)
+            {
+                <tr>
+                    <td>@task.RoomNumber</td>
+                    <td>@task.TaskType</td>
+                    <td>
+                        @if (task.CleaningStatus == "Clean")
+                        {
+                            <span class="badge bg-success">@task.CleaningStatus</span>
+                        }
+                        else if (task.CleaningStatus == "Dirty")
+                        {
+                            <span class="badge bg-danger">@task.CleaningStatus</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-warning text-dark">@task.CleaningStatus</span>
+                        }
+                    </td>
+                    <td>@task.AssignedStaff</td>
+                    <td>@task.ScheduledDate.ToString("dd MMM yyyy")</td>
+                    <td>@task.MaintenanceNotes</td>
+                    <td>
+                        <a asp-action="UpdateStatus" asp-route-id="@task.Id" class="btn btn-sm btn-warning">Update</a>
+                        <form asp-action="Delete" asp-route-id="@task.Id" method="post" style="display:inline"
+                              onsubmit="return confirm('Are you sure you want to delete this task?');">
+                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
