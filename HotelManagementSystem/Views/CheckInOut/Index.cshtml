@@ -1,5 +1,152 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model HotelManagementSystem.Models.CheckInOutViewModel
+
 @{
+    ViewData["Title"] = "Check-In / Check-Out";
 }
+
+<div class="container mt-5 mb-5">
+
+    <div class="text-center mb-4">
+        <h2>Guest Check-In / Check-Out</h2>
+        <p class="text-muted">Manage guest check-in and check-out information</p>
+    </div>
+
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-success text-center">
+            @ViewBag.Message
+        </div>
+    }
+
+    <div class="row justify-content-center">
+
+        <!-- CHECK-IN -->
+        <div class="col-md-5 mb-4">
+            <div class="card shadow">
+                <div class="card-body p-4">
+
+                    <h4 class="text-center mb-4">Check-In</h4>
+
+                    <form asp-action="CheckIn" method="post">
+
+                        <div class="mb-3">
+                            <label class="form-label">Reservation ID</label>
+                            <input asp-for="ReservationId"
+                                   class="form-control"
+                                   placeholder="Enter reservation ID" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Guest Name</label>
+                            <input asp-for="GuestName"
+                                   class="form-control"
+                                   placeholder="Enter guest name" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Guest ID</label>
+                            <input asp-for="GuestId"
+                                   class="form-control"
+                                   placeholder="Enter guest ID" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Room Number</label>
+                            <input asp-for="RoomNumber"
+                                   class="form-control"
+                                   placeholder="Enter room number" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Check-In Date</label>
+                            <input asp-for="CheckInDate"
+                                   type="date"
+                                   class="form-control" />
+                        </div>
+
+                        <div class="form-check mb-2">
+                            <input asp-for="IdVerified"
+                                   class="form-check-input" />
+                            <label class="form-check-label">
+                                Guest ID Verified
+                            </label>
+                        </div>
+
+                        <div class="form-check mb-3">
+                            <input asp-for="EarlyCheckIn"
+                                   class="form-check-input" />
+                            <label class="form-check-label">
+                                Early Check-In
+                            </label>
+                        </div>
+
+                        <button type="submit"
+                                class="btn btn-primary w-100">
+                            Check In
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- CHECK-OUT -->
+        <div class="col-md-5 mb-4">
+            <div class="card shadow">
+                <div class="card-body p-4">
+
+                    <h4 class="text-center mb-4">Check-Out</h4>
+
+                    <form asp-action="CheckOut" method="post">
+
+                        <div class="mb-3">
+                            <label class="form-label">Reservation ID</label>
+                            <input asp-for="ReservationId"
+                                   class="form-control"
+                                   placeholder="Enter reservation ID" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Guest Name</label>
+                            <input asp-for="GuestName"
+                                   class="form-control"
+                                   placeholder="Enter guest name" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Room Number</label>
+                            <input asp-for="RoomNumber"
+                                   class="form-control"
+                                   placeholder="Enter room number" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Check-Out Date</label>
+                            <input asp-for="CheckOutDate"
+                                   type="date"
+                                   class="form-control" />
+                        </div>
+
+                        <div class="form-check mb-3">
+                            <input asp-for="LateCheckOut"
+                                   class="form-check-input" />
+                            <label class="form-check-label">
+                                Late Check-Out
+                            </label>
+                        </div>
+
+                        <button type="submit"
+                                class="btn btn-success w-100">
+                            Check Out
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
