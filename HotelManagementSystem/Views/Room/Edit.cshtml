@@ -1,5 +1,134 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model HotelManagementSystem.Models.Room
+
 @{
+    ViewData["Title"] = "Edit Room";
 }
+
+<div class="container mt-4">
+
+    <h2>Edit Room</h2>
+
+    <hr />
+
+
+    <form asp-action="Edit"
+          method="post">
+
+
+        <input type="hidden"
+               asp-for="Id" />
+
+
+        <div class="mb-3">
+
+            <label asp-for="RoomNumber"
+                   class="form-label">
+            </label>
+
+            <input asp-for="RoomNumber"
+                   class="form-control" />
+
+            <span asp-validation-for="RoomNumber"
+                  class="text-danger">
+            </span>
+
+        </div>
+
+
+        <div class="mb-3">
+
+            <label asp-for="RoomType"
+                   class="form-label">
+            </label>
+
+            <select asp-for="RoomType"
+                    class="form-select">
+
+                <option value="Single">
+                    Single
+                </option>
+
+                <option value="Double">
+                    Double
+                </option>
+
+                <option value="Suite">
+                    Suite
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="mb-3">
+
+            <label asp-for="Status"
+                   class="form-label">
+            </label>
+
+            <select asp-for="Status"
+                    class="form-select">
+
+                <option value="Available">
+                    Available
+                </option>
+
+                <option value="Occupied">
+                    Occupied
+                </option>
+
+                <option value="Under Maintenance">
+                    Under Maintenance
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="mb-3">
+
+            <label asp-for="PricePerNight"
+                   class="form-label">
+            </label>
+
+            <input asp-for="PricePerNight"
+                   class="form-control"
+                   type="number" />
+
+        </div>
+
+
+        <div class="mb-3">
+
+            <label asp-for="Amenities"
+                   class="form-label">
+            </label>
+
+            <textarea asp-for="Amenities"
+                      class="form-control"
+                      rows="3">
+            </textarea>
+
+        </div>
+
+
+        <button type="submit"
+                class="btn btn-primary">
+
+            Update Room
+
+        </button>
+
+
+        <a asp-action="Index"
+           class="btn btn-secondary">
+
+            Back
+
+        </a>
+
+    </form>
+
+</div>

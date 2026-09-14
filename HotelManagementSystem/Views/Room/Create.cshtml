@@ -1,5 +1,144 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model HotelManagementSystem.Models.Room
+
 @{
+    ViewData["Title"] = "Add Room";
 }
+
+<div class="container mt-4">
+
+    <h2>Add New Room</h2>
+
+    <hr />
+
+
+    <form asp-action="Create" method="post">
+
+
+        <div class="mb-3">
+
+            <label asp-for="RoomNumber"
+                   class="form-label">
+            </label>
+
+            <input asp-for="RoomNumber"
+                   class="form-control"
+                   placeholder="Example: 101" />
+
+            <span asp-validation-for="RoomNumber"
+                  class="text-danger">
+            </span>
+
+        </div>
+
+
+        <div class="mb-3">
+
+            <label asp-for="RoomType"
+                   class="form-label">
+            </label>
+
+            <select asp-for="RoomType"
+                    class="form-select">
+
+                <option value="">
+                    -- Select Room Type --
+                </option>
+
+                <option value="Single">
+                    Single
+                </option>
+
+                <option value="Double">
+                    Double
+                </option>
+
+                <option value="Suite">
+                    Suite
+                </option>
+
+            </select>
+
+            <span asp-validation-for="RoomType"
+                  class="text-danger">
+            </span>
+
+        </div>
+
+
+        <div class="mb-3">
+
+            <label asp-for="Status"
+                   class="form-label">
+            </label>
+
+            <select asp-for="Status"
+                    class="form-select">
+
+                <option value="Available">
+                    Available
+                </option>
+
+                <option value="Occupied">
+                    Occupied
+                </option>
+
+                <option value="Under Maintenance">
+                    Under Maintenance
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="mb-3">
+
+            <label asp-for="PricePerNight"
+                   class="form-label">
+            </label>
+
+            <input asp-for="PricePerNight"
+                   class="form-control"
+                   type="number"
+                   placeholder="Example: 2500" />
+
+            <span asp-validation-for="PricePerNight"
+                  class="text-danger">
+            </span>
+
+        </div>
+
+
+        <div class="mb-3">
+
+            <label asp-for="Amenities"
+                   class="form-label">
+            </label>
+
+            <textarea asp-for="Amenities"
+                      class="form-control"
+                      rows="3"
+                      placeholder="Example: WiFi, AC, TV">
+            </textarea>
+
+        </div>
+
+
+        <button type="submit"
+                class="btn btn-success">
+
+            Save Room
+
+        </button>
+
+
+        <a asp-action="Index"
+           class="btn btn-secondary">
+
+            Back
+
+        </a>
+
+    </form>
+
+</div>
