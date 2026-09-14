@@ -1,5 +1,125 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<HotelManagementSystem.Models.Room>
+
 @{
+    ViewData["Title"] = "Room Management";
 }
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h2>Room Management</h2>
+            <p class="text-muted">
+                Manage hotel rooms, prices, status and amenities.
+            </p>
+        </div>
+
+        <a asp-action="Create"
+           class="btn btn-primary">
+            + Add New Room
+        </a>
+
+    </div>
+
+
+    <table class="table table-bordered table-striped">
+
+        <thead class="table-dark">
+
+            <tr>
+
+                <th>Room Number</th>
+
+                <th>Room Type</th>
+
+                <th>Status</th>
+
+                <th>Price Per Night</th>
+
+                <th>Amenities</th>
+
+                <th>Actions</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            @foreach (var room in Model)
+            {
+                <tr>
+
+                    <td>
+                        @room.RoomNumber
+                    </td>
+
+                    <td>
+                        @room.RoomType
+                    </td>
+
+                    <td>
+
+                        @if (room.Status == "Available")
+                        {
+                            <span class="badge bg-success">
+                                Available
+                            </span>
+                        }
+
+                        else if (room.Status == "Occupied")
+                        {
+                            <span class="badge bg-danger">
+                                Occupied
+                            </span>
+                        }
+
+                        else
+                        {
+                            <span class="badge bg-warning text-dark">
+                                Under Maintenance
+                            </span>
+                        }
+
+                    </td>
+
+                    <td>
+                        ৳ @room.PricePerNight
+                    </td>
+
+                    <td>
+                        @room.Amenities
+                    </td>
+
+
+                    <td>
+
+                        <a asp-action="Edit"
+                           asp-route-id="@room.Id"
+                           class="btn btn-warning btn-sm">
+
+                            Edit
+
+                        </a>
+
+
+                        <a asp-action="Delete"
+                           asp-route-id="@room.Id"
+                           class="btn btn-danger btn-sm">
+
+                            Delete
+
+                        </a>
+
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>
