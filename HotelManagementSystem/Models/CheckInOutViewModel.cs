@@ -2,13 +2,13 @@
 {
     public class CheckInOutViewModel
     {
-        public string ReservationId { get; set; }
+        public string? ReservationId { get; set; }
 
-        public string GuestName { get; set; }
+        public string? GuestName { get; set; }
 
-        public string GuestId { get; set; }
+        public string? GuestId { get; set; }
 
-        public string RoomNumber { get; set; }
+        public string? RoomNumber { get; set; }
 
         public DateTime? CheckInDate { get; set; }
 
@@ -22,6 +22,6 @@
 
         public bool RoomKeyIssued { get; set; }
 
-        public string Message { get; set; }
+        public string? Message { get; set; }
     }
 }
