@@ -1,0 +1,86 @@
+@model List<HotelManagementSystem.Models.RoomType>
+
+@{
+    ViewData["Title"] = "Search Rooms";
+}
+
+<div class="container mt-4">
+    <h2>Search Available Rooms</h2>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <div>@error.ErrorMessage</div>
+            }
+        </div>
+    }
+
+    <form asp-action="Search" method="get" class="row g-3 mb-4">
+        <div class="col-md-3">
+            <label class="form-label">Check-In</label>
+            <input type="date" name="checkIn" value="@ViewBag.CheckIn" class="form-control" required />
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Check-Out</label>
+            <input type="date" name="checkOut" value="@ViewBag.CheckOut" class="form-control" required />
+        </div>
+        <div class="col-md-2">
+            <label class="form-label">Room Type</label>
+            <select name="category" class="form-select">
+                <option value="">Any</option>
+                <option value="Single" selected="@(ViewBag.Category == "Single")">Single</option>
+                <option value="Double" selected="@(ViewBag.Category == "Double")">Double</option>
+                <option value="Suite" selected="@(ViewBag.Category == "Suite")">Suite</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <label class="form-label">Min Price</label>
+            <input type="number" name="minPrice" value="@ViewBag.MinPrice" class="form-control" min="0" />
+        </div>
+        <div class="col-md-2">
+            <label class="form-label">Max Price</label>
+            <input type="number" name="maxPrice" value="@ViewBag.MaxPrice" class="form-control" min="0" />
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-search me-1"></i> Search
+            </button>
+            <a asp-action="Index" class="btn btn-secondary">Back to Bookings</a>
+        </div>
+    </form>
+
+    @if ((bool)(ViewBag.Searched ?? false))
+    {
+        <h4>Available Rooms</h4>
+        @if (Model.Any())
+        {
+            <div class="row g-3">
+                @foreach (var room in Model)
+                {
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <img src="@room.ImageUrl" class="card-img-top" alt="Room @room.RoomNumber" style="height: 200px; object-fit: cover;" />
+                            <div class="card-body">
+                                <h5 class="card-title">Room @room.RoomNumber <span class="badge bg-secondary">@room.Category</span></h5>
+                                <p class="card-text mb-1"><strong>Price:</strong> @room.PricePerNight.ToString("C0") / night</p>
+                                <p class="card-text mb-1"><strong>Capacity:</strong> @room.Capacity guest(s)</p>
+                                <p class="card-text text-muted"><small>@room.Amenities</small></p>
+                                <a asp-action="Create"
+                                   asp-route-roomId="@room.Id"
+                                   asp-route-checkIn="@ViewBag.CheckIn"
+                                   asp-route-checkOut="@ViewBag.CheckOut"
+                                   class="btn btn-success w-100">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-warning">No rooms match your search for those dates/filters.</div>
+        }
+    }
+</div>

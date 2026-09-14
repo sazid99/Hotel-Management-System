@@ -1,5 +1,68 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+@model HotelManagementSystem.Models.Booking
 @{
+    ViewData["Title"] = "New Booking";
+    var guests = (List<HotelManagementSystem.Models.Guest>)ViewBag.Guests;
+    var rooms = (List<HotelManagementSystem.Models.RoomType>)ViewBag.Rooms;
 }
+
+<div class="container mt-4">
+    <h2>New Booking</h2>
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <form asp-action="Create" method="post">
+        <div class="mb-3">
+            <label class="form-label">Guest</label>
+            <select asp-for="GuestId" class="form-select">
+                <option value="">-- Select Guest --</option>
+                @foreach (var g in guests)
+                {
+                    <option value="@g.Id">@g.Name (@g.Phone)</option>
+                }
+            </select>
+            <span asp-validation-for="GuestId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Room</label>
+            <select asp-for="RoomId" class="form-select">
+                <option value="">-- Select Room --</option>
+                @foreach (var r in rooms)
+                {
+                    <option value="@r.Id">Room @r.RoomNumber - @r.Category (@r.PricePerNight.ToString("C0")/night)</option>
+                }
+            </select>
+            <span asp-validation-for="RoomId" class="text-danger"></span>
+        </div>
+
+        @{
+            var preselected = rooms.FirstOrDefault(r => r.Id == Model.RoomId);
+        }
+        @if (preselected != null)
+        {
+            <img src="@preselected.ImageUrl" alt="Room @preselected.RoomNumber" class="mb-3 rounded" style="width: 100%; max-height: 220px; object-fit: cover;" />
+        }
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Check-In Date</label>
+                <input asp-for="CheckInDate" type="date" class="form-control" />
+                <span asp-validation-for="CheckInDate" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Check-Out Date</label>
+                <input asp-for="CheckOutDate" type="date" class="form-control" />
+                <span asp-validation-for="CheckOutDate" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Advance Payment / Deposit (optional)</label>
+            <input asp-for="AdvancePayment" type="number" min="0" step="0.01" class="form-control" placeholder="Leave blank for automatic 20% deposit" />
+            <div class="form-text">Total price and default deposit are calculated automatically based on the room and dates.</div>
+        </div>
+
+        <button type="submit" class="btn btn-success">Confirm Booking</button>
+        <a asp-action="Search" class="btn btn-secondary">Back to Search</a>
+    </form>
+</div>

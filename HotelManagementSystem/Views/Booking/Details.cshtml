@@ -1,5 +1,89 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+@model HotelManagementSystem.Models.Booking
 @{
+    ViewData["Title"] = "Booking Details";
+    var badgeClass = Model.Status switch
+    {
+        "Confirmed" => "bg-success",
+        "Pending" => "bg-warning text-dark",
+        "Cancelled" => "bg-danger",
+        "Modified" => "bg-info text-dark",
+        _ => "bg-secondary"
+    };
 }
+
+<div class="container mt-4">
+    <h2>Booking #@Model.Id <span class="badge @badgeClass">@Model.Status</span></h2>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
+
+    @if (Model.Room != null)
+    {
+        <img src="@Model.Room.ImageUrl" alt="Room @Model.Room.RoomNumber" class="mb-3 rounded" style="width: 100%; max-height: 280px; object-fit: cover;" />
+    }
+
+    <table class="table table-bordered">
+        <tr>
+            <th style="width: 220px;">Guest</th>
+            <td>@(Model.Guest?.Name ?? "—") @(Model.Guest != null ? $"({Model.Guest.Phone})" : "")</td>
+        </tr>
+        <tr>
+            <th>Room</th>
+            <td>@(Model.Room != null ? $"{Model.Room.RoomNumber} — {Model.Room.Category}" : "—")</td>
+        </tr>
+        <tr>
+            <th>Check-In</th>
+            <td>@Model.CheckInDate.ToString("dd MMM yyyy")</td>
+        </tr>
+        <tr>
+            <th>Check-Out</th>
+            <td>@Model.CheckOutDate.ToString("dd MMM yyyy")</td>
+        </tr>
+        <tr>
+            <th>Nights</th>
+            <td>@Model.Nights</td>
+        </tr>
+        <tr>
+            <th>Total Price</th>
+            <td>@Model.TotalPrice.ToString("C0")</td>
+        </tr>
+        <tr>
+            <th>Advance Payment / Deposit</th>
+            <td>@Model.AdvancePayment.ToString("C0")</td>
+        </tr>
+        <tr>
+            <th>Balance Due</th>
+            <td>@Model.BalanceDue.ToString("C0")</td>
+        </tr>
+        <tr>
+            <th>Booked On</th>
+            <td>@Model.CreatedAt.ToString("dd MMM yyyy, hh:mm tt")</td>
+        </tr>
+    </table>
+
+    <div class="d-flex gap-2 flex-wrap">
+        @if (Model.Status == "Pending")
+        {
+            <form asp-action="Confirm" asp-route-id="@Model.Id" method="post" style="display:inline">
+                <button type="submit" class="btn btn-success">Confirm Reservation</button>
+            </form>
+        }
+
+        @if (Model.Status != "Cancelled")
+        {
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Modify</a>
+            <form asp-action="Cancel" asp-route-id="@Model.Id" method="post" style="display:inline"
+                  onsubmit="return confirm('Are you sure you want to cancel this reservation?');">
+                <button type="submit" class="btn btn-danger">Cancel Reservation</button>
+            </form>
+        }
+
+        <a asp-action="Index" class="btn btn-secondary">Back to Booking History</a>
+    </div>
+</div>

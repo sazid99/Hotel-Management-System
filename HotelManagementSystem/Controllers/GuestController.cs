@@ -5,7 +5,10 @@ namespace HotelManagementSystem.Controllers
 {
     public class GuestController : Controller
     {
-        private static List<Guest> guests = new List<Guest>
+        // Changed from `private` to `internal` so the Booking module can look up
+        // and list guests from the same in-memory source instead of duplicating
+        // guest data. No other behavior changed.
+        internal static List<Guest> guests = new List<Guest>
         {
             new Guest
             {
