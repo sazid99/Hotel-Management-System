@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using HotelManagementSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,8 +9,33 @@ namespace HotelManagementSystem.Controllers
     public class RestaurantController : Controller
     {
         // Temporary in-memory storage — replace with DbContext (EF Core) later
-        private static List<RestaurantOrder> _orders = new List<RestaurantOrder>();
-        private static int _nextId = 1;
+        private static List<RestaurantOrder> _orders = new List<RestaurantOrder>
+        {
+            new RestaurantOrder
+            {
+                Id = 1,
+                GuestName = "Rahim Uddin",
+                RoomNumber = "204",
+                ItemName = "Chicken Biryani",
+                Quantity = 2,
+                Price = 350,
+                OrderDate = DateTime.Now.AddMinutes(-30),
+                Status = OrderStatus.Preparing
+            },
+            new RestaurantOrder
+            {
+                Id = 2,
+                GuestName = "Karim Ahmed",
+                RoomNumber = "310",
+                ItemName = "Club Sandwich",
+                Quantity = 1,
+                Price = 250,
+                OrderDate = DateTime.Now.AddMinutes(-10),
+                Status = OrderStatus.Pending
+            }
+        };
+
+        private static int _nextId = 3;
 
         // GET: /Restaurant
         public IActionResult Index()
